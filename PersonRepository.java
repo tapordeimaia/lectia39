@@ -27,6 +27,21 @@ public class PersonRepository {
         p.setSurname(person.getSurname());
     }
 
+    public void patchPerson(Person person, int id) {
+        Person p =  personList.stream()
+                .filter(pers -> pers.getId() == id)
+                .findFirst().get();
+        if (person.getName()!=null){
+            p.setName(person.getName());
+        }
+        if (person.getAge()!=0){
+            p.setAge(person.getAge());
+        }
+        if (person.getSurname()!=null){
+            p.setSurname(person.getSurname());
+        }
+    }
+
     public void createPerson(Person person) {
         person.setId(++idCount);
         personList.add(person);

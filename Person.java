@@ -1,10 +1,21 @@
 package com.example.lectia39;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column
     private String name;
+    @Column
     private String surname;
+    @Column
     private int age;
+    public Person(){
+
+    }
 
     public Person(int id, String name, String surname, int age) {
         this.id = id;
